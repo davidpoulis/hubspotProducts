@@ -4,13 +4,12 @@
 var request = require('request-promise')
 var secret = require('./secret')
 const API_KEY = secret.API_KEY
-const END_POINT = `https://api.hubapi.com/crm-objects/v1/objects/products?hapikey=${API_KEY}`
 
 
-exports.sendProductToHubspot= async (data) =>{
+exports.sendProductToHubspot= async (data,url,method) =>{
   var options = {
-    method: 'POST',
-    uri: END_POINT,
+    method: method,
+    uri: url,
     body: data ,
     json: true // Automatically stringifies the body to JSON
 };
